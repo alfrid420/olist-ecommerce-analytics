@@ -126,7 +126,7 @@ def forecast_chart(monthly: pd.DataFrame) -> None:
                              line={"width": 0}, fill="tonexty",
                              fillcolor="rgba(214,39,40,0.2)", name="80% interval"))
     fig.add_trace(go.Scatter(x=monthly["ds"], y=monthly["y"], mode="lines+markers",
-                             name="Actual"))
+                             name="Actual", line={"color": "#1f77b4"}))
     fig.add_trace(go.Scatter(x=future["ds"], y=future["yhat"], mode="lines+markers",
                              name="Forecast", line={"dash": "dash", "color": "#d62728"}))
     fig.update_layout(margin={"t": 10}, yaxis_title="Revenue (R$)", xaxis_title="Month")
