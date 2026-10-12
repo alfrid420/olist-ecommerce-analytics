@@ -1,0 +1,23 @@
+# Data and generated outputs (re-create with the scripts)
+data/*.csv
+data/*.db
+outputs/*.png
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+
+# Environment and secrets
+.env
+
+# Tooling and OS
+.ipynb_checkpoints/
+.pytest_cache/
+.vscode/
+.idea/
+.DS_Store
