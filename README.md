@@ -140,8 +140,9 @@ python src/forecast.py           # -> outputs/forecast.png + predictions
 streamlit run src/app.py
 ```
 
-> If Prophet fails to install on your system, `forecast.py` automatically falls
-> back to a simple linear-trend forecast so the pipeline still completes.
+> If Prophet fails to install or load on your system (a known issue on some
+> Windows setups), `forecast.py` automatically falls back to a simple
+> linear-trend forecast so the pipeline and dashboard still complete.
 
 ## Future Improvements
 
