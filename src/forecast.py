@@ -105,9 +105,11 @@ def run_forecast(
     try:
         fc = _prophet_forecast(monthly, periods, interval_width)
         method = "Prophet"
-    except ImportError:
+    except Exception as exc:  # noqa: BLE001
+        # Prophet missing (ImportError) or its Stan backend failing to load,
+        # which happens on some Windows setups. Keep the pipeline working.
         fc = _linear_fallback(monthly, periods, interval_width)
-        method = "Linear trend (Prophet not installed)"
+        method = f"Linear trend (Prophet unavailable: {type(exc).__name__})"
     last_actual = monthly["ds"].max()
     fc["is_forecast"] = fc["ds"] > last_actual
     # Revenue cannot be negative.
